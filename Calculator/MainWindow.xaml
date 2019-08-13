@@ -5,12 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Calculator" Height="430" Width="280">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="227*"/>
-            <ColumnDefinition Width="567*"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+        
+        <!--Number Buttons-->
+        <Button Grid.Row="3" Grid.Column="0">7</Button>
+        <Button Grid.Row="3" Grid.Column="1">8</Button>
+        <Button Grid.Row="3" Grid.Column="2">9</Button>
+
+        <Button Grid.Row="4" Grid.Column="0">4</Button>
+        <Button Grid.Row="4" Grid.Column="1">5</Button>
+        <Button Grid.Row="4" Grid.Column="2">6</Button>
+
+        <Button Grid.Row="5" Grid.Column="0">1</Button>
+        <Button Grid.Row="5" Grid.Column="1">2</Button>
+        <Button Grid.Row="5" Grid.Column="2">3</Button>
+
+        <Button Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0">0</Button>
+        <Button Grid.Row="6" Grid.Column="2">.</Button>
+        <Button Grid.Row="6" Grid.Column="3">+</Button>
+        <Button Grid.Row="5" Grid.Column="3">-</Button>
+        <Button Grid.Row="4" Grid.Column="3">*</Button>
+        <Button Grid.Row="3" Grid.Column="3">/</Button>
+
+        <Button Grid.Row="5" Grid.RowSpan="2" Grid.Column="4">=</Button>
+        <Button Grid.Row="3" Grid.Column="4">1/x</Button>
+        <Button Grid.Row="4" Grid.Column="4">%</Button>
+
+        <Button Grid.Row="2" Grid.Column="0">CE</Button>
+        <Button Grid.Row="2" Grid.Column="1">C</Button>
+        <Button Grid.Row="2" Grid.Column="2" Content="&lt;="></Button>
+        <Button Grid.Row="2" Grid.Column="3" Content="&#177;"></Button>
+        <Button Grid.Row="2" Grid.Column="4">sqrt</Button>
     </Grid>
 </Window>
