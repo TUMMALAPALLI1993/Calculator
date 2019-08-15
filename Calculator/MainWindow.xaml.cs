@@ -16,30 +16,29 @@ using System.Windows.Shapes;
 
 namespace Calculator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        //Two input numbers
         double number1 = 0;
         double number2 = 0;
-        string mathOperation = "";
-        bool dotEvent = false;
+        string mathOperation = "";  //Operation to proceed
+        bool dotEvent = false;      //For decimals (entering .(dot))
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
         public void calculation(double n1,double n2,int buttonValue,string mathOperator)
-        {
-            
-            if (mathOperator == "sqrt")
+        {            
+            if (mathOperator == "sqrt" || mathOperator == "frac")
             {
                 number1 = 0;
                 number2 = 0;
                 mathOperation = "";
             }
 
+            //Display the .(dot) if event is pressed
             if(dotEvent == true)
             {
                 if (mathOperator == "")
@@ -51,6 +50,7 @@ namespace Calculator
                     txtDisplay.Text = number2.ToString() + ".";
                 }
             }
+            //If dot is alreay present and dot event not pressed (do the math operation by using number1 and number2 as strings)
             else if(txtDisplay.Text.IndexOf(".") > 0 && dotEvent == false)
             {
                 if (mathOperator == "")
@@ -65,6 +65,7 @@ namespace Calculator
                 }
 
             }
+            //If decimal not present (do math operations as number1 and number2 as direct numbers not as strings)
             else
             {
                 if (mathOperator == "")
@@ -204,6 +205,7 @@ namespace Calculator
 
         private void BtnFraction_Click(object sender, RoutedEventArgs e)
         {
+            mathOperation = "frac";
             if (number1 != 0)
             {
                 txtDisplay.Text = (1 / number1).ToString();
