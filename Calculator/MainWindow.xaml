@@ -39,7 +39,7 @@
         <Button x:Name="btn3" Grid.Row="4" Grid.Column="2" FontSize="20" Click="Btn3_Click">3</Button>
 
         <Button x:Name="btn0" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" FontSize="20" Click="Btn0_Click">0</Button>
-        <Button x:Name="btnDot" Grid.Row="5" Grid.Column="2" FontSize="20">.</Button>
+        <Button x:Name="btnDot" Grid.Row="5" Grid.Column="2" FontSize="20" Click="BtnDot_Click">.</Button>
         <Button x:Name="btnAdd" Grid.Row="5" Grid.Column="3" FontSize="20" Click="BtnAdd_Click">+</Button>
         <Button x:Name="btnSub" Grid.Row="4" Grid.Column="3" FontSize="20" Click="BtnSub_Click">-</Button>
         <Button x:Name="btnMul" Grid.Row="3" Grid.Column="3" FontSize="20" Click="BtnMul_Click">*</Button>

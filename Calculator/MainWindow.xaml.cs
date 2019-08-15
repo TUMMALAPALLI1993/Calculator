@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace Calculator
         double number1 = 0;
         double number2 = 0;
         string mathOperation = "";
+        bool dotEvent = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace Calculator
 
         public void calculation(double n1,double n2,int buttonValue,string mathOperator)
         {
+            
             if (mathOperator == "sqrt")
             {
                 number1 = 0;
@@ -37,15 +40,43 @@ namespace Calculator
                 mathOperation = "";
             }
 
-            if (mathOperator == "")
+            if(dotEvent == true)
             {
-                number1 = (n1 * 10) + buttonValue;
-                txtDisplay.Text = number1.ToString();
+                if (mathOperator == "")
+                {
+                    txtDisplay.Text = number1.ToString() + ".";
+                }
+                else
+                {
+                    txtDisplay.Text = number2.ToString() + ".";
+                }
+            }
+            else if(txtDisplay.Text.IndexOf(".") > 0 && dotEvent == false)
+            {
+                if (mathOperator == "")
+                {
+                    number1 = double.Parse(txtDisplay.Text + buttonValue.ToString());
+                    txtDisplay.Text = number1.ToString();
+                }
+                else
+                {
+                    number2 = double.Parse(txtDisplay.Text + buttonValue.ToString());
+                    txtDisplay.Text = number2.ToString();
+                }
+
             }
             else
             {
-                number2 = (n2 * 10) + buttonValue;
-                txtDisplay.Text = number2.ToString();
+                if (mathOperator == "")
+                {
+                    number1 = (n1 * 10) + buttonValue;
+                    txtDisplay.Text = number1.ToString();
+                }
+                else
+                {
+                    number2 = (n2 * 10) + buttonValue;
+                    txtDisplay.Text = number2.ToString();
+                }
             }
         }
 
@@ -113,7 +144,7 @@ namespace Calculator
                 txtDisplay.Text = txtDisplay.Text.Remove(txtDisplay.Text.Length - 1, 1);
                 if (txtDisplay.Text != "")
                 {
-                    number1 = Int32.Parse(txtDisplay.Text);
+                    number1 = double.Parse(txtDisplay.Text);
                 }
                 else
                 {
@@ -207,6 +238,20 @@ namespace Calculator
                     txtDisplay.Text = (number1 / number2).ToString();
                     mathOperation = "";
                     break;
+            }
+        }
+
+        private void BtnDot_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtDisplay.Text.IndexOf(".") > 0)
+            {
+
+            }
+            else
+            {
+                dotEvent = true;
+                calculation(number1, number2, 0, mathOperation);
+                dotEvent = false;
             }
         }
     }
